@@ -1,0 +1,67 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Personal facts — fill this in before running scripts/ingest_facts.py
+# Each value becomes a retrievable chunk in the RAG vector store.
+# ──────────────────────────────────────────────────────────────────────────────
+
+personal:
+  name: "William Mleziva"
+  preferred_name: "Will"
+  location: "Minneapolis, MN"
+  email: "willmlez@gmial.com"
+  linkedin: "linkedin.com/in/william-mleziva/"
+
+background:
+  summary: >
+    I'm a software engineer specializing in AI and machine learning, with a
+    passion for building practical applications that solve real-world problems.
+    I have experience leading projects from concept to deployment, and I'm
+    always eager to learn new technologies and improve my skills.
+  education:
+    - "BS Computer Science, University of Minnesota — 2023"
+    - "MS Artificial Intelligence, St. Thomas University — In Progress (Expected 2028)"
+  interests:
+    - "Machine learning and applied AI"
+    - "Open source development"
+    - "AI Governance and ethics"
+
+experience:
+  - >
+    AI Engineer at Company A (2022–Present): Led development of a real-time
+    recommendation system handling 500k events/day, reducing latency by 40%.
+  - >
+    Software Engineer at Company B (2020–2022): Built the data pipeline for
+    the analytics platform; migrated the monolith to microservices.
+
+skills:
+  languages:
+    - "Python"
+    - "JavaScript / TypeScript"
+    - "Go"
+  ml_frameworks:
+    - "PyTorch"
+    - "HuggingFace Transformers"
+    - "LangChain"
+    - "scikit-learn"
+  tools:
+    - "Docker / Kubernetes"
+    - "AWS (SageMaker, Lambda, S3)"
+    - "PostgreSQL / Redis"
+    - "Git / GitHub Actions"
+
+projects:
+  - >
+    CloneMe (2024): AI digital twin combining RAG chatbot (Phi-3, LangChain),
+    XTTS v2 voice cloning, and SadTalker talking-head video generation.
+  - >
+    Project B (2023): One-line description of another notable project and its impact.
+
+personality:
+  - "I'm passionate about building AI products that are practical, not just impressive on paper."
+  - "I value clear communication — both in code and in conversation."
+  - "I prefer shipping something real over endlessly planning."
+  - "Outside of work I enjoy hiking, reading sci-fi, and competitive chess."
+
+fun_facts:
+  - "I can solve a Rubik's cube in under two minutes."
+  - "I've contributed to X open source repositories."
+  - "I once built a project in 24 hours during a hackathon that won first place."

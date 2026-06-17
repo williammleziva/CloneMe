@@ -1,0 +1,58 @@
+# ── Build Tools ───────────────────────────────────────────────────────────────
+setuptools
+
+# ── PyTorch (CUDA 12.1) ───────────────────────────────────────────────────────
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch>=2.4.0
+torchaudio
+torchvision
+
+# ── HuggingFace ───────────────────────────────────────────────────────────────
+transformers
+accelerate
+huggingface-hub
+sentence-transformers
+
+# ── LangChain ─────────────────────────────────────────────────────────────────
+langchain
+langchain-huggingface
+langchain-qdrant
+
+# ── Vector DB (Qdrant) ────────────────────────────────────────────────────────
+qdrant-client[local]
+
+# ── TTS (Chatterbox — voice cloning) ─────────────────────────────────────────
+chatterbox-tts
+
+# ── API ───────────────────────────────────────────────────────────────────────
+fastapi
+uvicorn[standard]
+python-multipart
+
+# ── UI ────────────────────────────────────────────────────────────────────────
+gradio
+
+# ── Audio utils ───────────────────────────────────────────────────────────────
+numpy
+scipy
+soundfile
+librosa
+
+# ── Config ────────────────────────────────────────────────────────────────────
+pyyaml
+python-dotenv
+pydantic
+requests
+
+# ── SadTalker (talking-head video) ────────────────────────────────────────────
+face_alignment
+imageio
+imageio-ffmpeg
+safetensors
+facexlib
+gfpgan
+kornia
+resampy
+av
+yacs
+dlib
