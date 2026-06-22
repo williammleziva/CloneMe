@@ -55,4 +55,3 @@ kornia
 resampy
 av
 yacs
-dlib

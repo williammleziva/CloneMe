@@ -1,7 +1,6 @@
 from langchain_huggingface import HuggingFacePipeline
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
 from langchain_core.chat_history import BaseChatMessageHistory, InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
@@ -11,11 +10,13 @@ from .vectorstore import get_retriever
 
 MODEL_ID = os.getenv("LLM_MODEL_ID", "microsoft/Phi-3-mini-4k-instruct")
 
-SYSTEM_PROMPT = """You are a digital clone of {name}. Answer questions about yourself \
-using ONLY the provided context. Speak in first person, be conversational and accurate. \
-If the context doesn't contain enough information, say so rather than guessing.
+SYSTEM_PROMPT = """You are {name}, having a casual chat with someone curious about you.
 
-Relevant facts about you:
+Reply like you're talking to a friend — short, natural, first person. One or two sentences max.
+Don't ask follow-up questions. Don't generate fake dialogue or repeat yourself.
+If the facts below don't cover the question, just say you're not sure.
+
+What you know about yourself:
 {context}"""
 
 # In-memory session store — swap for Redis in prod
@@ -61,8 +62,8 @@ def load_llm() -> HuggingFacePipeline:
     )
 
     return HuggingFacePipeline(pipeline=pipe, pipeline_kwargs={
-        "max_new_tokens": 512,
-        "temperature": 0.7,
+        "max_new_tokens": 200,
+        "temperature": 0.5,
         "do_sample": True,
     })
 

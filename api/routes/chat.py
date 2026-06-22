@@ -1,3 +1,4 @@
+import time
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 from core.rag.chain import _session_store
@@ -17,11 +18,16 @@ class ChatResponse(BaseModel):
 
 @router.post("/", response_model=ChatResponse)
 async def chat(request: ChatRequest, req: Request):
+    print(f"[api/chat] User: {request.message[:60]}{'...' if len(request.message) > 60 else ''}")
+    t0 = time.perf_counter()
     try:
         response = req.app.state.chain.invoke(
             {"question": request.message},
             config={"configurable": {"session_id": request.session_id}},
         )
+        elapsed = time.perf_counter() - t0
+        print(f"[api/chat] Clone: {response[:60]}{'...' if len(response) > 60 else ''}")
+        print(f"[api/chat] Done in {elapsed:.1f}s")
         return ChatResponse(response=response, session_id=request.session_id)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
