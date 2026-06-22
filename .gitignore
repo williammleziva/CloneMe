@@ -2,3 +2,19 @@ venv/
 .venv/
 
 third_party/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Env
+.env
+
+# Output / model artifacts
+output/
+data/qdrant_local/
+
+# OS
+.DS_Store
+Thumbs.db
