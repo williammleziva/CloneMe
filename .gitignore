@@ -15,6 +15,12 @@ __pycache__/
 output/
 data/qdrant_local/
 
+# Private data — keep local only
+data/facts/profile.yaml
+data/media/voice_ref/
+data/media/reference_photo.jpg
+response.wav
+
 # OS
 .DS_Store
 Thumbs.db

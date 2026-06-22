@@ -99,8 +99,13 @@ CloneMe/
 │   └── video/
 │       └── generator.py      # SadTalker inference + model weight management
 ├── data/
-│   ├── facts/profile.yaml    # Personal facts ingested into RAG
-│   └── media/                # Voice reference audio + face photo
+│   ├── facts/
+│   │   ├── profile.yaml.example  # Template — copy and customize
+│   │   └── profile.yaml          # Your personal facts (private, in .gitignore)
+│   └── media/
+│       ├── voice_ref/
+│       │   └── reference.wav     # Your voice recording (private)
+│       └── reference_photo.jpg   # Your face photo (private)
 ├── scripts/
 │   └── ingest_facts.py       # YAML → embeddings → Qdrant
 ├── third_party/
@@ -143,15 +148,31 @@ cp .env.example .env
 | `CLONE_NAME` | `Will` | Name used in system prompt |
 | `LLM_MODEL_ID` | `microsoft/Phi-3-mini-4k-instruct` | HuggingFace model ID |
 | `EMBEDDING_MODEL` | `BAAI/bge-small-en-v1.5` | Embedding model for retrieval |
-| `TTS_REF_AUDIO` | `data/media/voice_ref/reference.wav` | 10–30s reference voice clip |
-| `REFERENCE_IMAGE` | `data/media/reference_photo.jpg` | Frontal face photo |
+| `TTS_REF_AUDIO` | `data/media/voice_ref/reference.wav` | 10–30s reference voice clip (private) |
+| `REFERENCE_IMAGE` | `data/media/reference_photo.jpg` | Frontal face photo (private) |
 | `HF_TOKEN` | — | HuggingFace token (for gated models) |
 
 ### Prepare Your Data
 
-1. Edit `data/facts/profile.yaml` with your personal facts
-2. Add a voice reference recording: `data/media/voice_ref/reference.wav`
-3. Add a frontal face photo: `data/media/reference_photo.jpg`
+Copy and customize the example profile, then add private media:
+
+1. **Profile facts** — Copy the template and fill in your own:
+   ```bash
+   cp data/facts/profile.yaml.example data/facts/profile.yaml
+   # Edit data/facts/profile.yaml with your personal facts
+   ```
+
+2. **Voice reference** — Record a 10–30 second clip of your voice:
+   ```
+   data/media/voice_ref/reference.wav
+   ```
+
+3. **Face photo** — Add a frontal-facing photo of yourself:
+   ```
+   data/media/reference_photo.jpg
+   ```
+
+**Privacy note:** `profile.yaml`, voice recordings, and photos are all in `.gitignore` — they stay private and never commit to the repository.
 
 ### Ingest Facts
 

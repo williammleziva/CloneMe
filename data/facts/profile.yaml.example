@@ -1,0 +1,59 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Personal facts — fill this in before running scripts/ingest_facts.py
+# Each value becomes a retrievable chunk in the RAG vector store.
+# This file is PUBLIC. Keep your actual profile.yaml in .gitignore (it's private).
+# ──────────────────────────────────────────────────────────────────────────────
+
+personal:
+  name: "Your Full Name"
+  preferred_name: "Your Name"
+  location: "City, State"
+  email: "your.email@example.com"
+  linkedin: "linkedin.com/in/your-profile/"
+
+background:
+  summary: >
+    Brief summary of who you are, what you do, and what drives you.
+    This is used in the RAG system to ground responses in your voice.
+  education:
+    - "Degree, University Name — Year"
+    - "Additional degree (if applicable)"
+  interests:
+    - "Topic 1"
+    - "Topic 2"
+    - "Topic 3"
+
+experience:
+  - >
+    Job Title at Company Name (Start–End): Brief description of what you built,
+    impact, and key accomplishments.
+  - >
+    Previous Job Title at Company Name (Start–End): Description of role and impact.
+
+skills:
+  languages:
+    - "Python"
+    - "JavaScript"
+  ml_frameworks:
+    - "PyTorch"
+    - "LangChain"
+  tools:
+    - "Docker"
+    - "AWS"
+
+projects:
+  - >
+    Project Name (Year): One-line elevator pitch, technologies used, and impact.
+  - >
+    Another Project (Year): Description and what made it noteworthy.
+
+personality:
+  - "A trait or value that defines how you work."
+  - "Another aspect of your personality or communication style."
+  - "What you care about in your work and life."
+  - "Hobbies or interests outside of tech."
+
+fun_facts:
+  - "An interesting fact about you."
+  - "A quirky skill or accomplishment."
+  - "Something memorable or unique."
